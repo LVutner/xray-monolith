@@ -24,6 +24,7 @@
 #include "blender_pp_bloom.h"
 #include "blender_nightvision.h"
 #include "blender_lut.h"
+#include "blender_ssr.h"
 
 #include "../xrRender/dxRenderDeviceRender.h"
 
@@ -667,6 +668,18 @@ CRenderTarget::CRenderTarget()
 		f_bloom_factor = 0.5f;
 	}
 
+	//Screen-space reflections
+	{
+		u32 w = Device.dwWidth;
+		u32 h = Device.dwHeight;
+		
+		b_ssr = xr_new<CBlender_ssr>();
+			
+		rt_ssr_0.create(r2_RT_ssr_0, w, h, D3DFMT_A8R8G8B8);
+		rt_ssr_1.create(r2_RT_ssr_1, w, h, D3DFMT_A8R8G8B8);
+
+		s_ssr.create(b_ssr, "r2\\ssr");			
+	}
 	//SMAA
 	{
 		u32 w = Device.dwWidth;
@@ -1158,6 +1171,7 @@ CRenderTarget::~CRenderTarget()
 	xr_delete(b_nightvision);
 	xr_delete(b_lut);	
 	xr_delete(b_smaa);
+	xr_delete(b_ssr);
 
 	if (RImplementation.o.dx10_msaa)
 	{

@@ -60,6 +60,8 @@ public:
 	IBlender* b_nightvision;
 	IBlender* b_lut;
 	IBlender* b_smaa;
+	IBlender* b_ssr;	
+
 	// compute shader for hdao
 	IBlender* b_hdao_cs;
 	IBlender* b_hdao_msaa_cs;
@@ -111,7 +113,10 @@ public:
 
 	ref_rt rt_smaa_edgetex;
 	ref_rt rt_smaa_blendtex;
-	
+
+	ref_rt rt_ssr_0;
+	ref_rt rt_ssr_1;
+		
 	//	Igor: for volumetric lights
 	ref_rt rt_Generic_2; // 32bit		(r,g,b,a)				// post-process, intermidiate results, etc.
 	ref_rt rt_Bloom_1; // 32bit, dim/4	(r,g,b,?)
@@ -176,6 +181,7 @@ private:
 	ref_shader s_gasmask_dudv;
 	ref_shader s_nightvision;	
 	ref_shader s_smaa;
+	ref_shader s_ssr;
 
 	ref_shader s_lut;
 	//	generate min/max
@@ -302,6 +308,8 @@ public:
 	void phase_nightvision();
 	void phase_lut();		
 	void phase_smaa();
+	void phase_ssr();	
+
 	void phase_scene_prepare();
 	void phase_scene_begin();
 	void phase_scene_end();

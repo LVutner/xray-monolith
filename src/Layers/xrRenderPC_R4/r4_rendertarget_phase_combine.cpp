@@ -320,6 +320,9 @@ void CRenderTarget::phase_combine()
 		                                rt_Generic_0_r->pTexture->surface_get(), 0, DXGI_FORMAT_R8G8B8A8_UNORM);
 	}
 
+	if (ps_r2_anomaly_flags.test(R2_AN_FLAG_WATER_REFLECTIONS))
+		phase_ssr();
+
 	// for msaa we need a resolved color buffer - Holger
 	phase_bloom(); // HDR RT invalidated here
 

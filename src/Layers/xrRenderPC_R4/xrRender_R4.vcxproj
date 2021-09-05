@@ -382,6 +382,7 @@
     <ClInclude Include="blender_pp_bloom.h" />
     <ClInclude Include="blender_smaa.h" />
     <ClInclude Include="blender_ssao.h" />
+    <ClInclude Include="blender_ssr.h" />
     <ClInclude Include="blender_ss_sunshafts.h" />
     <ClInclude Include="..\..\xrEngine\cl_intersect.h" />
     <ClInclude Include="ComputeShader.h" />
@@ -514,6 +515,7 @@
     <ClCompile Include="..\xrRender\rendertarget_phase_gasmask_dudv.cpp" />
     <ClCompile Include="..\xrRender\rendertarget_phase_pp_bloom.cpp" />
     <ClCompile Include="..\xrRender\rendertarget_phase_smaa.cpp" />
+    <ClCompile Include="..\xrRender\rendertarget_phase_ssr.cpp" />
     <ClCompile Include="..\xrRender\rendertarget_phase_sunshafts.cpp" />
     <ClCompile Include="..\xrRender\ResourceManager.cpp" />
     <ClCompile Include="..\xrRender\ResourceManager_Loader.cpp" />
@@ -574,6 +576,7 @@
     <ClCompile Include="blender_pp_bloom.cpp" />
     <ClCompile Include="blender_smaa.cpp" />
     <ClCompile Include="blender_ssao.cpp" />
+    <ClCompile Include="blender_ssr.cpp" />
     <ClCompile Include="blender_ss_sunshafts.cpp" />
     <ClCompile Include="ComputeShader.cpp" />
     <ClCompile Include="CSCompiler.cpp" />
